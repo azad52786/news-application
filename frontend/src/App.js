@@ -1,23 +1,17 @@
 import logo from './logo.svg';
 import './App.css';
+import { Outlet } from 'react-router-dom';
+import Navbar from './component/navbar/Navbar';
+import NewsPage from './component/BodyCompnent/NewsPage';
+import { useState } from 'react';
 
 function App() {
+  // lifting up 
+  const [ isSearch , setIsSearch ] = useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className=" font-inter w-full min-h-screen text-pure-greys-5 bg-richblack-800">
+      <Navbar setIsSearch = {setIsSearch}/>
+      <NewsPage isSearch ={isSearch} setIsSearch = {setIsSearch}/>
     </div>
   );
 }
