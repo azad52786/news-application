@@ -7,6 +7,7 @@ import { BASE_URL } from "../../utils";
 import NewsCard from "./NewsCard";
 import CallShimmer from "../shimmerComponent/CallShimmer";
 import { useAppContext } from "../../context/AppProvider";
+import toast from "react-hot-toast";
 const NewsPage = ({ filterLanguage, filterCountry }) => {
   let {
     setArticles,
@@ -49,6 +50,7 @@ const NewsPage = ({ filterLanguage, filterCountry }) => {
           console.log(articles);
         }
       } catch (e) {
+        toast.error(e.message)
         console.log(e);
       }
     })();

@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import NewsPage from './component/BodyCompnent/NewsPage';
 import AppProvider from './context/AppProvider';
+import toast, { Toaster } from 'react-hot-toast';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -23,7 +24,9 @@ const router = createBrowserRouter([
 ])
 root.render(
     <AppProvider>
-    <RouterProvider router= {router} /></AppProvider>
+    <Toaster/>
+    <RouterProvider router= {router} />
+    </AppProvider>
   
 );
 

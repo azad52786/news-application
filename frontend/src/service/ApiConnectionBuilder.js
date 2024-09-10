@@ -1,5 +1,6 @@
 import Apiconnection from "./Apiconnection"
 import { BASE_URL } from "../utils";
+import toast from 'react-hot-toast';
 
 export const getSearchData = async(SearchInput) => {
     // console.log(SearchInput)
@@ -11,6 +12,7 @@ export const getSearchData = async(SearchInput) => {
         }
         return res.data?.data;
     }catch(e){
+        toast.error(e.message);
         console.log(e)
     }
 }
