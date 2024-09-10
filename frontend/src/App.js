@@ -7,11 +7,13 @@ import { useState } from 'react';
 
 function App() {
   // lifting up 
-  const [ isSearch , setIsSearch ] = useState(false);
+  // const [ isSearch , setIsSearch ] = useState(false);
+  const [filterCountry , setFilterCountry ] = useState('in');
+  const [filterLanguage , setFilterLanguage ] = useState('en');
   return (
     <div className=" font-inter w-full min-h-screen text-pure-greys-5 bg-richblack-800">
-      <Navbar setIsSearch = {setIsSearch}/>
-      <NewsPage isSearch ={isSearch} setIsSearch = {setIsSearch}/>
+      <Navbar filterCountry={filterCountry} filterLanguage={filterLanguage} setFilterCountry={setFilterCountry} setFilterLanguage={setFilterLanguage}/>
+      <NewsPage  filterCountry={filterCountry} filterLanguage ={filterLanguage}/>
     </div>
   );
 }
