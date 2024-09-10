@@ -12,6 +12,12 @@ let PORT = process.env.PORT || 4000;
 
 
 app.use('/api/v1/' , newsRouter);
+app.get('/' , (req , res) => { 
+    return res.status(201).json({
+        success : true , 
+        message : "Server started "
+    })
+});
 app.listen( 4000 , () => {
     console.log('listening on port...' , PORT);
 });
