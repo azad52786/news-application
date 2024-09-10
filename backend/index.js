@@ -10,7 +10,6 @@ app.use(cors({
 }))
 let PORT = process.env.PORT || 4000;
 
-
 app.use('/api/v1/' , newsRouter);
 app.get('/' , (req , res) => { 
     return res.status(201).json({

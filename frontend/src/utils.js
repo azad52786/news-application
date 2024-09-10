@@ -8,7 +8,7 @@ export const categories = [
     "technology"
   ];
   
-export const BASE_URL = 'http://localhost:4000/api/v1'
+export const BASE_URL = 'https://news-application-qpn4.onrender.com/api/v1'
 export const countries = [
   { name: "Australia", value: "au" },
   { name: "Brazil", value: "br" },
