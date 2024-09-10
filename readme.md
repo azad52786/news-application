@@ -12,19 +12,19 @@ This project is a full-stack application that integrates with the [gnews.io](htt
 
 2.  **Start the app:**
    ```bash
-   npm start
+   npm start  
    
-   
-### Frontend
- 1. Install npm packages:
+### Backend 
+1. **Install npm packages:**
     ```bash
     npm install
-    2. **Set your GNews API Key:**
+    
+2. **Set your GNews API Key:**
 
    - Obtain your API key from [gnews.io](https://gnews.io) and set it in your environment variables (`GNEWS_API_KEY`).
    - Set the `PORT=4000` in your `.env` file.
 
- 3. Start the server:
+3. **Start the server:**
     ```bash
     npm start
     
