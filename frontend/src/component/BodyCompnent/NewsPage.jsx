@@ -15,12 +15,17 @@ const NewsPage = ({ filterLanguage, filterCountry }) => {
     setCurrentCatagory,
     isSearch,
     setIsSearch,
+    showFilter,
   } = useAppContext();
   useEffect(() => {
     (async () => {
       try {
-        console.log('newspage called' , currentCatagory)
-        if (articles[currentCatagory] === undefined && !isSearch) {
+        console.log("newspage called", currentCatagory);
+        if (
+          articles[currentCatagory] === undefined &&
+          !isSearch &&
+          !showFilter
+        ) {
           const response = await Apiconnection(
             "get",
             BASE_URL + "/getCatagoryData",
@@ -33,21 +38,21 @@ const NewsPage = ({ filterLanguage, filterCountry }) => {
             }
           );
           console.log(response);
-          if(!response.data.success){
-            throw new Error("backend Error")
+          if (!response.data.success) {
+            throw new Error("backend Error");
           }
           setArticles((prevArticles) => {
             const newArticles = [...prevArticles];
             newArticles[currentCatagory] = response.data?.data.articles || [];
             return newArticles;
           });
-          console.log(articles)
+          console.log(articles);
         }
       } catch (e) {
         console.log(e);
       }
     })();
-  }, [currentCatagory , isSearch]);
+  }, [currentCatagory, isSearch, showFilter]);
   return (
     <div className=" w-full h-full">
       <div className=" w-[90%] md:[80%] lg:[70%] mx-auto">

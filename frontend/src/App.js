@@ -7,7 +7,6 @@ import { useState } from 'react';
 
 function App() {
   // lifting up 
-  // const [ isSearch , setIsSearch ] = useState(false);
   const [filterCountry , setFilterCountry ] = useState('in');
   const [filterLanguage , setFilterLanguage ] = useState('en');
   return (

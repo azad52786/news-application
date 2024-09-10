@@ -7,7 +7,8 @@ const AppProvider = ({ children }) => {
   const [articles, setArticles] = useState([]);
   const [currentCatagory, setCurrentCatagory] = useState(0);
   const [isSearch, setIsSearch] = useState(false);
-  const [searchPara , setSearchPara ] = useState('');
+  const [searchPara, setSearchPara] = useState("");
+  const [showFilter, setShowFilter] = useState(false);
   return (
     <AppContext.Provider
       value={{
@@ -16,7 +17,11 @@ const AppProvider = ({ children }) => {
         currentCatagory,
         setCurrentCatagory,
         setIsSearch,
-        isSearch, searchPara , setSearchPara 
+        isSearch,
+        searchPara,
+        setSearchPara,
+        showFilter,
+        setShowFilter,
       }}
     >
       {children}

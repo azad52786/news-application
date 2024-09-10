@@ -6,9 +6,22 @@ import { countries, languages } from "../../utils";
 import { useAppContext } from "../../context/AppProvider";
 import { getSearchData } from "../../service/ApiConnectionBuilder";
 
-const Navbar = ({ filterLanguage , filterCountry , setFilterCountry, setFilterLanguage }) => {
-  const [showFilter, setShowFilter] = useState(false);
-  const { setCurrentCatagory, currentCatagory , articles ,  setArticles , setIsSearch , searchPara , setSearchPara  } = useAppContext();
+const Navbar = ({
+  filterLanguage,
+  filterCountry,
+  setFilterCountry,
+  setFilterLanguage,
+}) => {
+ 
+  const {
+    setCurrentCatagory,
+    currentCatagory,
+    articles,
+    setArticles,
+    setIsSearch,
+    searchPara,
+    setSearchPara, showFilter, setShowFilter
+  } = useAppContext();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,21 +29,21 @@ const Navbar = ({ filterLanguage , filterCountry , setFilterCountry, setFilterLa
     setArticles([]);
     setCurrentCatagory(0);
   };
-  const searchHandeler = async() => {
+  const searchHandeler = async () => {
     setIsSearch(true);
     setCurrentCatagory(0);
     let res = await getSearchData(searchPara);
-    if(res){
-       setArticles((pre) => {
-      let newArr = [...pre];
-      newArr[currentCatagory] = res?.articles;
-      return newArr;
-    });
+    if (res) {
+      setArticles((pre) => {
+        let newArr = [...pre];
+        newArr[currentCatagory] = res?.articles;
+        return newArr;
+      });
     }
-   
-    console.log(articles)
-    setSearchPara('');
-  }
+
+    console.log(articles);
+    setSearchPara("");
+  };
 
   return (
     <div className="relative w-full h-fit mx-auto bg-richblack-600 border-b border-richblack-50 border-opacity-40">
@@ -47,7 +60,8 @@ const Navbar = ({ filterLanguage , filterCountry , setFilterCountry, setFilterLa
               value={searchPara}
               onChange={(e) => setSearchPara(e.target.value)}
             />
-            <FaSearch className="absolute right-4 top-[30%] text-richblack-5 cursor-pointer"
+            <FaSearch
+              className="absolute right-4 top-[30%] text-richblack-5 cursor-pointer"
               onClick={searchHandeler}
             />
           </div>
@@ -74,7 +88,10 @@ const Navbar = ({ filterLanguage , filterCountry , setFilterCountry, setFilterLa
                 />
               </div>
               <div className="w-full">
-                <label htmlFor="country" className="text-lg font-edu-sa w-[30%]">
+                <label
+                  htmlFor="country"
+                  className="text-lg font-edu-sa w-[30%]"
+                >
                   Country:
                 </label>
                 <select
@@ -85,14 +102,21 @@ const Navbar = ({ filterLanguage , filterCountry , setFilterCountry, setFilterLa
                   className="bg-richblack-800 w-[calc(100%-28%)] h-10 rounded-md"
                 >
                   {countries.map((country, index) => (
-                    <option key={index} value={country.value} className="bg-richblack-700">
+                    <option
+                      key={index}
+                      value={country.value}
+                      className="bg-richblack-700"
+                    >
                       {country.name}
                     </option>
                   ))}
                 </select>
               </div>
               <div className="w-full">
-                <label htmlFor="language" className="text-lg font-edu-sa w-[30%]">
+                <label
+                  htmlFor="language"
+                  className="text-lg font-edu-sa w-[30%]"
+                >
                   Language:
                 </label>
                 <select
@@ -103,7 +127,11 @@ const Navbar = ({ filterLanguage , filterCountry , setFilterCountry, setFilterLa
                   className="bg-richblack-800 w-[calc(100%-30%)] h-10 rounded-md"
                 >
                   {languages.map((language, index) => (
-                    <option key={index} value={language.value} className="bg-richblack-700">
+                    <option
+                      key={index}
+                      value={language.value}
+                      className="bg-richblack-700"
+                    >
                       {language.name}
                     </option>
                   ))}
