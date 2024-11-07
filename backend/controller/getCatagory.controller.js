@@ -14,11 +14,13 @@ exports.getCatagory = async( req , res) => {
         }
         const url = `https://gnews.io/api/v4/top-headlines?category=${category}&lang=${language}&country=${country}&apikey=${API_KEY}`
         const response = await axios.get(url);
+        console.log(response);
         return res.status(201).json({
             success : true , 
             data : response.data , 
             message : "Successfully Data fetch done"
         });
+        
     }catch(e){
         res.status(401).status({
             success : false , 
